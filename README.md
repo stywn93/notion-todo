@@ -11,7 +11,7 @@ It reads and writes `to-do` checkboxes on that page.
 
 ## 1. Install
 
-1. Open **Notion Todo-1.0.dmg**.
+1. Download from Release and Open **Notion Todo-1.0.dmg**.
 2. Drag **Notion todo.app** into the **Applications** folder.
 3. Eject the DMG, then open the app from Applications.
 
