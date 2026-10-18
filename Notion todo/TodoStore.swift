@@ -38,7 +38,7 @@ final class TodoStore {
     func saveSettings(token: String, page: String) async {
         let t = token.trimmingCharacters(in: .whitespacesAndNewlines)
         guard NotionClient.parsePageID(page) != nil else {
-            errorMessage = "URL / ID halaman tidak valid."
+            errorMessage = String(localized: "Invalid page URL or ID.")
             return
         }
         self.token = t
@@ -97,6 +97,49 @@ final class TodoStore {
             if let i = items.firstIndex(where: { $0.id == item.id }) {
                 items[i].checked = !newValue   // rollback
             }
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    func rename(_ item: TodoItem, to newText: String) async {
+        let t = newText.trimmingCharacters(in: .whitespacesAndNewlines)
+        // Teks kosong atau tidak berubah → abaikan (tidak menghapus todo).
+        guard !t.isEmpty,
+              let idx = items.firstIndex(where: { $0.id == item.id }),
+              items[idx].text != t else { return }
+        let oldText = items[idx].text
+        items[idx].text = t                    // optimistic
+        mutationVersion += 1
+        pending += 1
+        defer { pending -= 1 }
+        do {
+            try await NotionClient(token: token).setText(blockID: item.id, text: t)
+            errorMessage = nil
+        } catch {
+            if let i = items.firstIndex(where: { $0.id == item.id }) {
+                items[i].text = oldText        // rollback
+            }
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    /// Menghapus semua todo yang sudah tercentang sekaligus ("Clear Completed").
+    func clearCompleted() async {
+        let completed = items.filter(\.checked)
+        guard !completed.isEmpty else { return }
+        let snapshot = items
+        items.removeAll(where: \.checked)      // optimistic
+        mutationVersion += 1
+        pending += 1
+        defer { pending -= 1 }
+        do {
+            let client = NotionClient(token: token)
+            for item in completed {
+                try await client.delete(blockID: item.id)
+            }
+            errorMessage = nil
+        } catch {
+            items = snapshot                    // rollback
             errorMessage = error.localizedDescription
         }
     }

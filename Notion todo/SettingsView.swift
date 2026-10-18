@@ -9,18 +9,18 @@ struct SettingsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Koneksi Notion").font(.subheadline.bold())
+            Text("Notion Connection").font(.subheadline.bold())
 
             SecureField("Integration token", text: $token)
-            TextField("URL atau ID halaman Notion", text: $page)
+            TextField("Notion page URL or ID", text: $page)
 
-            Text("Halaman harus sudah di-connect ke integration (… → Connections).")
+            Text("The page must be connected to the integration (… → Connections).")
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
 
             HStack {
-                Button("Simpan") {
+                Button("Save") {
                     Task {
                         await store.saveSettings(token: token, page: page)
                         if store.isConfigured { onDone() }
@@ -29,7 +29,7 @@ struct SettingsView: View {
                 .disabled(token.isEmpty || page.isEmpty)
 
                 if store.isConfigured {
-                    Button("Batal", action: onDone)
+                    Button("Cancel", action: onDone)
                 }
             }
         }

@@ -1,0 +1,222 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "(empty)" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(kosong)"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "Add" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tambah"
+          }
+        }
+      }
+    },
+    "Add new item…" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tambah item baru…"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batal"
+          }
+        }
+      }
+    },
+    "Clear Completed" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bersihkan yang selesai"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesai"
+          }
+        }
+      }
+    },
+    "Integration token" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Integration token"
+          }
+        }
+      }
+    },
+    "Invalid page URL or ID." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL / ID halaman tidak valid."
+          }
+        }
+      }
+    },
+    "Invalid token." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Token tidak valid."
+          }
+        }
+      }
+    },
+    "Loading…" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memuat…"
+          }
+        }
+      }
+    },
+    "No todos on this page yet." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belum ada todo di halaman ini."
+          }
+        }
+      }
+    },
+    "Notion Connection" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koneksi Notion"
+          }
+        }
+      }
+    },
+    "Notion page URL or ID" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL atau ID halaman Notion"
+          }
+        }
+      }
+    },
+    "Notion rate limit hit — try again in a moment." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kena rate limit Notion, coba lagi sebentar."
+          }
+        }
+      }
+    },
+    "Open" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belum selesai"
+          }
+        }
+      }
+    },
+    "Page not found. Make sure the integration is connected to this page (… → Connections)." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halaman tidak ditemukan. Pastikan integration sudah di-connect ke halaman ini (… → Connections)."
+          }
+        }
+      }
+    },
+    "Quit" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keluar"
+          }
+        }
+      }
+    },
+    "Response did not contain a block ID" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respons tidak berisi block id"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simpan"
+          }
+        }
+      }
+    },
+    "Settings…" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pengaturan…"
+          }
+        }
+      }
+    },
+    "The page must be connected to the integration (… → Connections)." : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halaman harus sudah di-connect ke integration (… → Connections)."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

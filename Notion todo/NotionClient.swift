@@ -48,9 +48,9 @@ struct NotionClient {
             switch self {
             case .http(let code, let msg):
                 switch code {
-                case 401: return "Token tidak valid."
-                case 404: return "Halaman tidak ditemukan. Pastikan integration sudah di-connect ke halaman ini (… → Connections)."
-                case 429: return "Kena rate limit Notion, coba lagi sebentar."
+                case 401: return String(localized: "Invalid token.")
+                case 404: return String(localized: "Page not found. Make sure the integration is connected to this page (… → Connections).")
+                case 429: return String(localized: "Notion rate limit hit — try again in a moment.")
                 default:  return "Notion error \(code): \(msg)"
                 }
             }
@@ -127,7 +127,7 @@ struct NotionClient {
         let obj = try JSONSerialization.jsonObject(with: data) as? [String: Any]
         let results = obj?["results"] as? [[String: Any]]
         guard let id = results?.last?["id"] as? String else {
-            throw NotionError.http(0, "Respons tidak berisi block id")
+            throw NotionError.http(0, String(localized: "Response did not contain a block ID"))
         }
         return id
     }
@@ -135,6 +135,13 @@ struct NotionClient {
     func setChecked(blockID: String, checked: Bool) async throws {
         _ = try await request("blocks/\(blockID)", method: "PATCH",
                               body: ["to_do": ["checked": checked]])
+    }
+
+    /// Mengganti teks todo. Catatan: ini menimpa seluruh rich_text, jadi format
+    /// (bold, link, mention) pada todo itu hilang dan menjadi teks polos.
+    func setText(blockID: String, text: String) async throws {
+        _ = try await request("blocks/\(blockID)", method: "PATCH",
+                              body: ["to_do": ["rich_text": [["type": "text", "text": ["content": text]]]]])
     }
 
     func delete(blockID: String) async throws {
